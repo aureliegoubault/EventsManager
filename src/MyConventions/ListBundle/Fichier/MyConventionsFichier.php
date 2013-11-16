@@ -13,7 +13,8 @@ class MyConventionsFichier {
 		$conventions = file($file);
 		foreach ($conventions as $convention){
 			if(strlen(trim($convention))){
-				array_push($result, array("name" => trim($convention)));
+				$infos = explode("---", trim($convention));
+				array_push($result, array("name" => $infos[0], "date" => $infos[1], "thumbnail" => $infos[2]));
 			}
 		}
 		return $result;
@@ -24,7 +25,8 @@ class MyConventionsFichier {
 	public function addConvention(Convention $convention,$file){
 		
 		$fp = fopen($file,"a");
-		fputs($fp, $convention->getName()."\n");
+		$date = $convention->getDate()->format('d F Y');
+		fputs($fp, $convention->getName()."---".$date."---".$convention->getThumbnail()."\n");
 		fclose($fp);
 		
 	}

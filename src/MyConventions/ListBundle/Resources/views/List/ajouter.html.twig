@@ -9,6 +9,16 @@
 			<div class="form-group">
 				{{ form_label(form.name, 'Nom de la convention') }}
 				{{ form_widget(form.name, {'attr': {'class': 'form-control', 'placeholder':'Entrez le nom de la convention...' }}) }}
+				
+				<br>
+				
+				{{ form_label(form.date, 'Date de la convention') }}
+				{{ form_widget(form.date) }}
+				
+				<br>
+				
+				{{ form_label(form.thumbnail, 'Image de la convention') }}
+				{{ form_widget(form.thumbnail, {'attr': {'class': 'form-control', 'placeholder':'Entrez le lien de l\'image...' }}) }}
 			</div>
 			
 		  	<button type="submit" class="btn btn-primary">Submit</button>

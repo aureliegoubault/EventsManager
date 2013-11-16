@@ -45,6 +45,28 @@ class __TwigTemplate_e3919c3c7456c881667542b85c690b4f1ed2813e6ed37d1707f70b249ce
         // line 11
         echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "name"), 'widget', array("attr" => array("class" => "form-control", "placeholder" => "Entrez le nom de la convention...")));
         echo "
+\t\t\t\t
+\t\t\t\t<br>
+\t\t\t\t
+\t\t\t\t";
+        // line 15
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "date"), 'label', array("label" => "Date de la convention"));
+        echo "
+\t\t\t\t";
+        // line 16
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "date"), 'widget');
+        echo "
+\t\t\t\t
+\t\t\t\t<br>
+\t\t\t\t
+\t\t\t\t";
+        // line 20
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "thumbnail"), 'label', array("label" => "Image de la convention"));
+        echo "
+\t\t\t\t";
+        // line 21
+        echo $this->env->getExtension('form')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "thumbnail"), 'widget', array("attr" => array("class" => "form-control", "placeholder" => "Entrez le lien de l'image...")));
+        echo "
 \t\t\t</div>
 \t\t\t
 \t\t  \t<button type=\"submit\" class=\"btn btn-primary\">Submit</button>
@@ -66,6 +88,6 @@ class __TwigTemplate_e3919c3c7456c881667542b85c690b4f1ed2813e6ed37d1707f70b249ce
 
     public function getDebugInfo()
     {
-        return array (  46 => 11,  42 => 10,  36 => 7,  31 => 4,  28 => 3,);
+        return array (  68 => 21,  64 => 20,  57 => 16,  53 => 15,  46 => 11,  42 => 10,  36 => 7,  31 => 4,  28 => 3,);
     }
 }

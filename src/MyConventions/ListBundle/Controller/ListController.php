@@ -33,6 +33,8 @@ class ListController extends Controller {
 		
 		// On ajoute les champs que l'on veut dans le formulaire
 		$formBuilder->add('name', 'text');
+		$formBuilder->add('date', 'date');
+		$formBuilder->add('thumbnail', 'text');
 		
 		// On gŽnre le formulaire
 		$form = $formBuilder->getForm();
