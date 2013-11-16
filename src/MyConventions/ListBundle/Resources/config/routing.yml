@@ -1,3 +1,7 @@
 MyConventions_accueil:
     pattern: /MyConventions/
     defaults: { _controller: MyConventionsListBundle:List:index }
+    
+MyConventions_ajouter:
+    pattern: /MyConventions/ajouter/
+    defaults: { _controller: MyConventionsListBundle:List:ajouter }

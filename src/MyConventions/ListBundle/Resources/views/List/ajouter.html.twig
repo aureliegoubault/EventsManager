@@ -1,0 +1,18 @@
+{% extends "::base.html.twig" %}
+
+{% block body %}
+
+	<!-- Formulaire d'ajout de convention -->
+	<div class="well">
+		<form role="form" method="post" {{ form_enctype(form) }}>
+			
+			<div class="form-group">
+				{{ form_label(form.name, 'Nom de la convention') }}
+				{{ form_widget(form.name, {'attr': {'class': 'form-control', 'placeholder':'Entrez le nom de la convention...' }}) }}
+			</div>
+			
+		  	<button type="submit" class="btn btn-primary">Submit</button>
+		</form>
+	</div>
+	
+{% endblock %}

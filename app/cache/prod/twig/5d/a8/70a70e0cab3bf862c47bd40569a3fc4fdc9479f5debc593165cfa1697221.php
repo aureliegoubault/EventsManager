@@ -29,47 +29,31 @@ class __TwigTemplate_5da870a70e0cab3bf862c47bd40569a3fc4fdc9479f5debc593165cfa16
     {
         // line 5
         echo "
-\t<div class=\"container\">
-  \t\t\t
-\t\t<!-- Titre de l'application -->
-\t\t<h1>My Conventions</h1>
-\t\t
-\t\t<!-- Barre de menu -->
-\t\t<div class=\"navbar navbar-default\">
-         
-        \t<ul class=\"nav navbar-nav\">
-                <li class=\"active\"><a href=\"#\">Conventions</a></li>
-        \t</ul>
-            
-        </div>
-\t    
-\t    <!-- Liste des conventions -->
-\t    <ul class=\"list-group\">
-\t    \t";
-        // line 22
+\t<!-- Liste des conventions -->
+\t<ul class=\"list-group\">
+\t\t";
+        // line 8
         $context['_parent'] = (array) $context;
         $context['_seq'] = twig_ensure_traversable((isset($context["conventions"]) ? $context["conventions"] : $this->getContext($context, "conventions")));
         $context['_iterated'] = false;
         foreach ($context['_seq'] as $context["_key"] => $context["convention"]) {
-            // line 23
-            echo "      \t\t\t<li class=\"list-group-item\"> ";
+            // line 9
+            echo "\t\t\t<li class=\"list-group-item\"> ";
             echo twig_escape_filter($this->env, $this->getAttribute((isset($context["convention"]) ? $context["convention"] : $this->getContext($context, "convention")), "name"), "html", null, true);
             echo " </li>
-    \t\t";
+\t\t";
             $context['_iterated'] = true;
         }
         if (!$context['_iterated']) {
-            // line 25
-            echo "      \t\t\t<li class=\"list-group-item\">Pas encore de convention!</li>
-    \t\t";
+            // line 11
+            echo "\t\t\t<li class=\"list-group-item\">Pas encore de convention!</li>
+\t\t";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['convention'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 27
-        echo "  \t\t</ul>
-\t\t
-\t</div>
+        // line 13
+        echo "\t</ul>
 \t
 ";
     }
@@ -86,6 +70,6 @@ class __TwigTemplate_5da870a70e0cab3bf862c47bd40569a3fc4fdc9479f5debc593165cfa16
 
     public function getDebugInfo()
     {
-        return array (  70 => 27,  63 => 25,  55 => 23,  50 => 22,  31 => 5,  28 => 4,);
+        return array (  56 => 13,  49 => 11,  41 => 9,  36 => 8,  31 => 5,  28 => 4,);
     }
 }

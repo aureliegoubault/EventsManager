@@ -9,7 +9,26 @@
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
     <body>
-        {% block body %}{% endblock %}
+    
+    	<div class="container">
+  			
+			<!-- Titre de l'application -->
+			<h1>My Conventions</h1>
+			
+			<!-- Barre de menu -->
+			<div class="navbar navbar-default">
+	         
+	        	<ul class="nav navbar-nav">
+	                <li {% if app.request.attributes.get('_route') == 'MyConventions_accueil' %}class="active"{% endif %}><a href="{{ path('MyConventions_accueil') }}">Conventions</a></li>
+	                <li {% if app.request.attributes.get('_route') == 'MyConventions_ajouter' %}class="active"{% endif %}><a href="{{ path('MyConventions_ajouter') }}">Ajouter</a></li>
+	        	</ul>
+	            
+	        </div>
+	        
+	        {% block body %}{% endblock %}
+    
+    	</div>
+   
         {% block javascripts %}
 	    	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 	    	<script type="text/javascript" src="{{ asset('js/bootstrap.min.js') }}"></script>
