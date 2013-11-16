@@ -1,0 +1,3 @@
+MyConventions_accueil:
+    pattern: /MyConventions/
+    defaults: { _controller: MyConventionsListBundle:List:index }

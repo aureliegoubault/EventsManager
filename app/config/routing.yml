@@ -1,0 +1,4 @@
+my_conventions_list:
+    resource: "@MyConventionsListBundle/Resources/config/routing.yml"
+    prefix:   /
+

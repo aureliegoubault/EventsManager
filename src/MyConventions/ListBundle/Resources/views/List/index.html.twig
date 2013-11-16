@@ -1,0 +1,31 @@
+{% extends "::base.html.twig" %}
+
+
+{% block body %}
+
+	<div class="container">
+  			
+		<!-- Titre de l'application -->
+		<h1>My Conventions</h1>
+		
+		<!-- Barre de menu -->
+		<div class="navbar navbar-default">
+         
+        	<ul class="nav navbar-nav">
+                <li class="active"><a href="#">Conventions</a></li>
+        	</ul>
+            
+        </div>
+	    
+	    <!-- Liste des conventions -->
+	    <ul class="list-group">
+	    	{% for convention in conventions %}
+      			<li class="list-group-item"> {{ convention.name }} </li>
+    		{% else %}
+      			<li class="list-group-item">Pas encore de convention!</li>
+    		{% endfor %}
+  		</ul>
+		
+	</div>
+	
+{% endblock %}
