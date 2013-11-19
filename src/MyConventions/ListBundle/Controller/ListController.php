@@ -35,6 +35,9 @@ class ListController extends Controller {
 		$formBuilder->add('name', 'text');
 		$formBuilder->add('date', 'date');
 		$formBuilder->add('thumbnail', 'text');
+		$formBuilder->add('location', 'text');
+		$formBuilder->add('enterprise', 'text');
+		$formBuilder->add('show', 'text');
 		
 		// On gŽnre le formulaire
 		$form = $formBuilder->getForm();
@@ -57,6 +60,42 @@ class ListController extends Controller {
 		return $this->render('MyConventionsListBundle:List:ajouter.html.twig', array('form' => $form->createView()));
 		
 	}
+	
+	
+	/***** Fonction pour le rendu d'une convention *****/
+	public function consulterAction($id){
+	
+		// On rŽcupre le service
+		$fichier = $this->container->get('myconventions_list.fichier');
+		
+		// On rŽcupre la convention dont l'id correspond au parametre
+		$convention = $fichier->getConvention($id,'conventions.txt');
+	
+		return $this->render('MyConventionsListBundle:List:consulter.html.twig', array('convention' => $convention));
+	
+	}
+	
+	/***** Fonction pour editer une convention *****/
+	public function editerAction($id){
+	
+		return new Response("<p>in progress</p>");
+	
+	}
+	
+	/***** Fonction pour supprimer une convention *****/
+	public function supprimerAction($id){
+	
+		// On rŽcupre le service
+		$fichier = $this->container->get('myconventions_list.fichier');
+		
+		// On supprime la convention correspond a l'id passe en parametre
+		$fichier->deleteConvention($id,'conventions.txt');
+	
+		// Redirection vers la page d'accueil
+		return $this->redirect($this->generateUrl('MyConventions_accueil'));
+	
+	}
+	
 	
 }
 

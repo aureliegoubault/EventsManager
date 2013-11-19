@@ -13,12 +13,28 @@
 				<br>
 				
 				{{ form_label(form.date, 'Date de la convention') }}
-				{{ form_widget(form.date) }}
+				{{ form_widget(form.date, {'attr': {'class': 'datepicker'}}) }}
 				
 				<br>
 				
 				{{ form_label(form.thumbnail, 'Image de la convention') }}
 				{{ form_widget(form.thumbnail, {'attr': {'class': 'form-control', 'placeholder':'Entrez le lien de l\'image...' }}) }}
+				
+				<br>
+				
+				{{ form_label(form.location, 'Lieu de la convention') }}
+				{{ form_widget(form.location, {'attr': {'class': 'form-control', 'placeholder':'Entrez le lieu de la convention...' }}) }}
+				
+				<br>
+				
+				{{ form_label(form.enterprise, 'Organisateur de la convention') }}
+				{{ form_widget(form.enterprise, {'attr': {'class': 'form-control', 'placeholder':'Entrez l\'organisateur de la convention...' }}) }}
+				
+				<br>
+				
+				{{ form_label(form.show, 'Serie de la convention') }}
+				{{ form_widget(form.show, {'attr': {'class': 'form-control', 'placeholder':'Entrez la serie de la convention...' }}) }}
+				
 			</div>
 			
 		  	<button type="submit" class="btn btn-primary">Submit</button>

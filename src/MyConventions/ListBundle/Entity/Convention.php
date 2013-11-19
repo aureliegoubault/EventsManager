@@ -8,12 +8,18 @@ class Convention {
 	private $name;
 	private $date;
 	private $thumbnail;
+	private $location;
+	private $enterprise;
+	private $show;
 	
 	// CONSTRUCTEUR
 	public function __construct() {
 		$this->name = "";
 		$this->date = new \DateTime;
 		$this->thumbnail = "";
+		$this->location = "";
+		$this->enterprise = "";
+		$this->show = "";
 	}
     
 	// GETTER
@@ -26,6 +32,15 @@ class Convention {
 	public function getThumbnail() {
 		return $this->thumbnail;
 	}
+	public function getLocation() {
+		return $this->location;
+	}
+	public function getEnterprise() {
+		return $this->enterprise;
+	}
+	public function getShow() {
+		return $this->show;
+	}
 	
 	// SETTER
 	public function setName($name) {
@@ -36,6 +51,15 @@ class Convention {
 	}
 	public function setThumbnail($thumbnail){
 		$this->thumbnail = $thumbnail;
+	}
+	public function setLocation($location){
+		$this->location = $location;
+	}
+	public function setEnterprise($enterprise){
+		$this->enterprise = $enterprise;
+	}
+	public function setShow($show){
+		$this->show = $show;
 	}
 
 }

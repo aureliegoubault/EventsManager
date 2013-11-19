@@ -5,3 +5,15 @@ MyConventions_accueil:
 MyConventions_ajouter:
     pattern: /MyConventions/ajouter/
     defaults: { _controller: MyConventionsListBundle:List:ajouter }
+
+MyConventions_convention:
+    pattern: /MyConventions/convention/{id}
+    defaults: { _controller: MyConventionsListBundle:List:consulter }
+
+MyConventions_editer:
+    pattern: /MyConventions/edition/{id}
+    defaults: { _controller: MyConventionsListBundle:List:editer }
+
+MyConventions_supprimer:
+    pattern: /MyConventions/suppression/{id}
+    defaults: { _controller: MyConventionsListBundle:List:supprimer }
