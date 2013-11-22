@@ -13,11 +13,17 @@ class ListController extends Controller {
 	/***** Fonction pour le rendu de la page d'accueil ****/
 	public function indexAction() {
 		
-		// On rŽcupre le service
-		$fichier = $this->container->get('myconventions_list.fichier');
+		// On recupere le service Doctrine
+		$doctrine = $this->getDoctrine();
 		
-		// On rŽcupre la liste des conventions
-		$conventions = $fichier->getAll('conventions.txt');
+		// On recupere le service EntityManager
+		$em = $doctrine->getManager();
+		
+		// On recupere le repository
+		$repository = $em->getRepository("MyConventions\ListBundle\Entity\Convention");
+		
+		// On recupere l'entite correspondant a l'id
+		$conventions = $repository->findAll();
 		
 		return $this->render('MyConventionsListBundle:List:index.html.twig', array('conventions' => $conventions));
 	}
@@ -37,7 +43,7 @@ class ListController extends Controller {
 		$formBuilder->add('thumbnail', 'text');
 		$formBuilder->add('location', 'text');
 		$formBuilder->add('enterprise', 'text');
-		$formBuilder->add('show', 'text');
+		$formBuilder->add('serie', 'text');
 		
 		// On gŽnre le formulaire
 		$form = $formBuilder->getForm();
@@ -50,8 +56,14 @@ class ListController extends Controller {
 			// L'objet Convention contient les donnŽes du formulaire
 			$form->bind($request);
 			
-			$fichier = $this->container->get('myconventions_list.fichier');
-			$fichier->addConvention($convention, 'conventions.txt');
+			// On recupere l'EntityManager
+			$em = $this->getDoctrine()->getManager();
+			
+			// On persiste l'entite
+			$em->persist($convention);
+			
+			// On flush tous les elements persistes
+			$em->flush();
 			
 			return $this->redirect($this->generateUrl('MyConventions_accueil'));
 			
@@ -64,12 +76,18 @@ class ListController extends Controller {
 	
 	/***** Fonction pour le rendu d'une convention *****/
 	public function consulterAction($id){
-	
-		// On rŽcupre le service
-		$fichier = $this->container->get('myconventions_list.fichier');
 		
-		// On rŽcupre la convention dont l'id correspond au parametre
-		$convention = $fichier->getConvention($id,'conventions.txt');
+		// On recupere le service Doctrine
+		$doctrine = $this->getDoctrine();
+		
+		// On recupere le service EntityManager
+		$em = $doctrine->getManager();
+		
+		// On recupere le repository
+		$repository = $em->getRepository("MyConventions\ListBundle\Entity\Convention");
+		
+		// On recupere l'entite correspondant a l'id
+		$convention = $repository->find($id);
 	
 		return $this->render('MyConventionsListBundle:List:consulter.html.twig', array('convention' => $convention));
 	
@@ -85,11 +103,18 @@ class ListController extends Controller {
 	/***** Fonction pour supprimer une convention *****/
 	public function supprimerAction($id){
 	
-		// On rŽcupre le service
-		$fichier = $this->container->get('myconventions_list.fichier');
+		// On recupere l'EntityManager
+		$em = $this->getDoctrine()->getManager();
 		
-		// On supprime la convention correspond a l'id passe en parametre
-		$fichier->deleteConvention($id,'conventions.txt');
+		// On recupere le repository
+		$repository = $em->getRepository("MyConventions\ListBundle\Entity\Convention");
+		
+		// On recupere l'entite correspondant a l'id
+		$convention = $repository->find($id);
+		
+		// On supprime l'entite
+		$em->remove($convention);
+		$em->flush();
 	
 		// Redirection vers la page d'accueil
 		return $this->redirect($this->generateUrl('MyConventions_accueil'));
