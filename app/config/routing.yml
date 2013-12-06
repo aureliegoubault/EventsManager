@@ -1,4 +1,4 @@
-my_conventions_list:
-    resource: "@MyConventionsListBundle/Resources/config/routing.yml"
+events_manager_event:
+    resource: "@EventsManagerEventBundle/Resources/config/routing.yml"
     prefix:   /
 

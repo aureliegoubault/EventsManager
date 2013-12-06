@@ -1,0 +1,15 @@
+{% extends "::base.html.twig" %}
+
+{% block body %}
+
+    <ul class="list-group">
+        {% for event in events %}
+                <li class="list-group-item"> 
+                    {{ event.titre }}
+                </li>
+        {% else %}
+                <li class="list-group-item">Pas encore d'événements!</li>
+        {% endfor %}
+    </ul>
+	
+{% endblock %}

@@ -1,0 +1,3 @@
+EventsManager_accueil:
+    pattern:  /EventsManager/
+    defaults: { _controller: EventsManagerEventBundle:Event:index }

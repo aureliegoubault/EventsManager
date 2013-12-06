@@ -2,9 +2,11 @@
 <html>
     <head>
         <meta charset="UTF-8" />
-        <title>{% block title %}MyConventions{% endblock %}</title>
+        <title>{% block title %}Events Manager{% endblock %}</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         {% block stylesheets %}
-      		<link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}" type="text/css" />
+                <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}" type="text/css" />
+                <link rel="stylesheet" href="{{ asset('css/bootstrap-responsive.css') }}" type="text/css" />
     	{% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
     </head>
@@ -12,26 +14,60 @@
     
     	<div class="container">
   			
-			<!-- Titre de l'application -->
-			<h1>My Conventions</h1>
-			
-			<!-- Barre de menu -->
-			<div class="navbar navbar-default">
-	         
-	        	<ul class="nav navbar-nav">
-	                <li {% if app.request.attributes.get('_route') == 'MyConventions_accueil' %}class="active"{% endif %}><a href="{{ path('MyConventions_accueil') }}">Conventions</a></li>
-	                <li {% if app.request.attributes.get('_route') == 'MyConventions_ajouter' %}class="active"{% endif %}><a href="{{ path('MyConventions_ajouter') }}">Ajouter</a></li>
-	        	</ul>
-	            
-	        </div>
-	        
-	        {% block body %}{% endblock %}
+            <!-- Titre de l'application -->
+            <h1>Events Manager</h1>
+            
+            <!-- Barre de menu -->
+            <div class="navbar navbar-default">
+     
+                <ul class="nav navbar-nav">
+                    
+                    <!-- Ajout d'un événement dans une liste -->
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Ajouter un événement
+                            <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#"><span class="glyphicon glyphicon-gift"></span><span style="padding-left: 10px;">Anniversaire</span></a></li>
+                            <li><a href="#"><span class="glyphicon glyphicon-film"></span><span style="padding-left: 10px;">Convention</span></a></li>
+                            <li><a href="#"><span class="glyphicon glyphicon-list"></span><span style="padding-left: 10px;">To Do</span></a></li>
+                        </ul>
+                    </li>
+    
+                    <!-- Vue calendrier -->
+                    <li><a href="{{ path('EventsManager_accueil') }}">Calendrier</a></li>
+    
+                    <!-- Vue carte -->
+                    <li><a href="{{ path('EventsManager_accueil') }}">Carte</a></li>
+
+                </ul>
+                
+            </div>
+            
+            <!-- Listes des événements et contenu -->
+            <div class="row-fluid">
+        
+                <div class="span2">
+                    <ul class="nav nav-pills nav-stacked">
+                        <li><a href="#">Anniversaires</a></li>
+                        <li><a href="#">Conventions</a></li>
+                        <li><a href="#">To Do</a></li>
+                    </ul>
+                </div>
+        
+                <div class="span10">
+                    {% block body %}{% endblock %}
+                </div>
+            
+            </div>
     
     	</div>
    
         {% block javascripts %}
-	    	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-	    	<script type="text/javascript" src="{{ asset('js/bootstrap.min.js') }}"></script>
-	    {% endblock %}
+            <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+            <script type="text/javascript" src="{{ asset('js/bootstrap.min.js') }}"></script>
+        {% endblock %}
+    
     </body>
 </html>
